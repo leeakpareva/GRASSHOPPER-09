@@ -6,7 +6,7 @@ import time
 from dotenv import load_dotenv
 
 # ✅ **Set Page Config First**
-st.set_page_config(page_title="GRASSHOPPER-09", page_icon="favicon.ico")
+st.set_page_config(page_title="GRASSHOPPER-09", page_icon="favicon.ico", layout="centered")
 
 # ✅ Load environment variables
 dotenv_path = os.path.join(os.path.dirname(__file__), ".env")
@@ -29,7 +29,7 @@ if "wardrobe" not in st.session_state:
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
 
-# 🎨 **Apply Styling**
+# 🎨 **Apply Mobile-Friendly Styling**
 st.markdown(
     """
     <style>
@@ -44,11 +44,11 @@ st.markdown(
         /* Header & Subheader Styling */
         .header-text {
             text-align: center;
-            font-size: 60px;
+            font-size: 50px;
             font-weight: bold;
             color: black;
-            margin-top: 20px;
-            margin-bottom: 10px;
+            margin-top: 10px;
+            margin-bottom: 5px;
         }
 
         /* Sidebar Styling */
@@ -59,28 +59,36 @@ st.markdown(
             color: black !important;
         }
 
-        /* Search Bar Styling */
+        /* Responsive Input Fields */
         div[data-testid="stTextInput"] input {
             background-color: #F5F5F5;
             color: #000000;
             border-radius: 12px;
-            padding: 12px;
-            font-size: 18px;
+            padding: 14px;
+            font-size: 16px;
             border: 1px solid #D3D3D3;
+            width: 100%;
         }
 
-        /* Button Styling */
+        /* Larger Buttons for Mobile */
         div[data-testid="stButton"] button {
             background-color: #000000;
             color: white;
             font-size: 18px;
             font-weight: bold;
             border-radius: 10px;
-            padding: 12px;
+            padding: 15px;
             text-align: center;
             width: 100%;
             margin-top: 10px;
         }
+
+        /* Optimize Image Display */
+        img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
     </style>
     """,
     unsafe_allow_html=True
